@@ -1,0 +1,10 @@
+#-*- coding : utf-8
+import requests
+from bs4 import BeautifulSoup
+
+html = requests.get("http://www.naver.com").text
+soup = BeautifulSoup(html,'html.parser')
+
+keyword=soup.select('.ah_roll_area.ah_k')
+for i, keyword in enumerate(keywords, 1):
+  print("{}위 {}".format(i,keyword.get_text())
